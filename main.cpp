@@ -974,11 +974,11 @@ static void CannyThreshold(int, void*)
 }
 
 
-int main()
+int main(int argc, char* argv[])
 {
     ocl::setUseOpenCL(false);
     //imread("f:/lib/opencv/samples/data/lena.jpg",IMREAD_GRAYSCALE).copyTo(img);
-    imread("c:/Users/Laurent.PC-LAURENT-VISI/Downloads/F1A_glider_hook.jpg",IMREAD_GRAYSCALE).copyTo(img);
+    imread(argv[1],IMREAD_GRAYSCALE).copyTo(img);
 
     imshow("Original",img);
       namedWindow( window_name, WINDOW_AUTOSIZE );
