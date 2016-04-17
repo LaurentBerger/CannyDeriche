@@ -984,14 +984,11 @@ int main(int argc, char* argv[])
       namedWindow( window_name, WINDOW_AUTOSIZE );
 
       /// Create a Trackbar for user to enter threshold
-  createTrackbar( "Min Threshold:",window_name, &lowThreshold, max_lowThreshold, CannyThreshold );
-  createTrackbar( "Max Threshold:", window_name, &maxThreshold, max_lowThreshold, CannyThreshold );
-  createTrackbar( "Derive:",window_name, &alDerive, 400, CannyThreshold );
-  createTrackbar( "Mean:", window_name, &alMean, 400, CannyThreshold );
-
-
-    
-    
+    createTrackbar( "Min Threshold:",window_name, &lowThreshold, max_lowThreshold, CannyThreshold );
+    createTrackbar( "Max Threshold:", window_name, &maxThreshold, max_lowThreshold, CannyThreshold );
+    createTrackbar( "Derive:",window_name, &alDerive, 400, CannyThreshold );
+    createTrackbar( "Mean:", window_name, &alMean, 400, CannyThreshold );
+    CannyThreshold(0,NULL);
 
     waitKey();
 
