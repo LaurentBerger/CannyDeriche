@@ -974,24 +974,21 @@ static void CannyThreshold(int, void*)
 }
 
 
-int main()
+int main(int argc, char* argv[])
 {
     ocl::setUseOpenCL(false);
     //imread("f:/lib/opencv/samples/data/lena.jpg",IMREAD_GRAYSCALE).copyTo(img);
-    imread("c:/Users/Laurent.PC-LAURENT-VISI/Downloads/F1A_glider_hook.jpg",IMREAD_GRAYSCALE).copyTo(img);
+    imread(argv[1],IMREAD_GRAYSCALE).copyTo(img);
 
     imshow("Original",img);
       namedWindow( window_name, WINDOW_AUTOSIZE );
 
       /// Create a Trackbar for user to enter threshold
-  createTrackbar( "Min Threshold:",window_name, &lowThreshold, max_lowThreshold, CannyThreshold );
-  createTrackbar( "Max Threshold:", window_name, &maxThreshold, max_lowThreshold, CannyThreshold );
-  createTrackbar( "Derive:",window_name, &alDerive, 400, CannyThreshold );
-  createTrackbar( "Mean:", window_name, &alMean, 400, CannyThreshold );
-
-
-    
-    
+    createTrackbar( "Min Threshold:",window_name, &lowThreshold, max_lowThreshold, CannyThreshold );
+    createTrackbar( "Max Threshold:", window_name, &maxThreshold, max_lowThreshold, CannyThreshold );
+    createTrackbar( "Derive:",window_name, &alDerive, 400, CannyThreshold );
+    createTrackbar( "Mean:", window_name, &alMean, 400, CannyThreshold );
+    CannyThreshold(0,NULL);
 
     waitKey();
 
